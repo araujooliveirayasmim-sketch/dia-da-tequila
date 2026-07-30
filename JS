@@ -1,0 +1,31 @@
+// Lista de mensagens aleatórias para a interação
+const mensagens = [
+    "¡Arriba, abajo, al centro y adentro! 🌵",
+    "Um brinde ao Agave Azul! ¡Salud! 🥂",
+    "Margaritas para todos hoje! 🍹",
+    "Celebrando a tradição e a cultura do México! 🇲🇽"
+];
+
+// Seleção dos elementos do DOM
+const celebrateBtn = document.getElementById('celebrate-btn');
+const toastDisplay = document.getElementById('toast-message');
+
+// Função de celebração
+function celebrarData() {
+    // Escolhe uma mensagem aleatória
+    const mensagemAleatoria = mensagens[Math.floor(Math.random() * mensagens.length)];
+    
+    // Atualiza o texto na tela
+    toastDisplay.innerText = mensagemAleatoria;
+    
+    // Efeito de animação no texto
+    toastDisplay.style.transform = "scale(1.1)";
+    toastDisplay.style.transition = "transform 0.2s ease";
+    
+    setTimeout(() => {
+        toastDisplay.style.transform = "scale(1)";
+    }, 200);
+}
+
+// Adiciona o ouvinte de evento ao botão
+celebrateBtn.addEventListener('click', celebrarData);
